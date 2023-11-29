@@ -1,0 +1,557 @@
+--- Pagina:1----
+Calculos en Excel
+- ¿Que es una formula?
+- 3 formas de introducir formulas en Excel
+- Actualizacion y correcion de formulas
+- El boton de relleno para copiar formulas
+# F2 abre la formula pero en la celda para verificar o actualizar
+# Se puede copiar las formulas
+# Dar doble click en el boton de relleno automaticamente llena las celdas de abajo
+# Primero seleccionar el rango,colocar la formula en el primero y aplastar ctr + enter se llena todo seleccionado
+# Calculando toda la columna con la formula,realizandole una tabla
+# Seleccionar una celda ctr + shift + flecha abajo
+# Para moverte en una celda seleccionado shift + enter , tab + shift
+-- Pagina:2 -- 2-1
+- Mas tecnicas de copiar y pegar formulas
+- Transponer
+- Referencias en Excel:
+  - Relativas,absolutas y mixta
+# Vamos a Transponer los datos
+# Las celdas es relativa -- cuando copias las celdas mueve las relativas
+-- Como solucionar si deseas que no sea relativa convertir a una referencia mixta o absoluta
+ - Debe color primero la letra de celda + $ + posicion(Cuando tiene un dolar es referencia mixta)
+-- Pagina: 2-- 2-1 -- 2-2
+- Referencias en Excel:
+ -- Relativavas,absolutas y mixtas
+  - Para seleccionar celdas ctrl + shift + flecha o ctrl + *
+  - Presionando F4 podemos colocar en referencia mixta,absoluta o relativa ($=mixta,$$=absoluta)
+  - Absoluta bloquea la fila y la columna
+-- Pagina 2-2
+  --Referencias en Excel:
+    - Diferencias entre copiar y cortar formulas
+    - Precedente de formulas
+    - Referencias absolutas
+  - Como son referencia relativas se puede copiar la formula porque se actualiza
+  - Corta es mover un dato de una celda a otra,sigue siendo los precedente donde realizastes la formula cortar = ctr + x
+  Rastreo de precedentes : ver cuales son los precedentes de una formula o funcion(ver que celda participa para el resultado final de una formula)
+  Referencia absoluta no mueve ni la columna y fila (mantiene la referencia de las celdas originales)
+  ctrl + l aparece la herramienta de buscar y reemplazar
+  Buscan se coloca ^= lo conviertes en texto para copiar la formula para realizar cortar y pegar
+-- Pagina 3
+  -- Uso de parentesis en formulas
+  -- Auditoria
+    -Precedentes
+    -Dependientes
+    -Inspección
+    -Evaluación de fórmulas
+  - Dependientes que celda depende de otra, indica todas las celdas de depende directamente de la celda
+  - Ventana de Inspeccion se puede agregar inspecciones,es una celda o varias celdas que queremos inspeccionar y que no se encuentra en principio en nuestro area visual
+  porque vamos hacer cambios -- sirve para poder ver celda que tenemos fuera de nuestro campo visual como se va modificando con los cambios que vamos haciendo en la hoja.
+  ctrl + i nos dale un cuadradito para dirigirno a la celda que deseamos
+  ctr + fin llega a la ultima fila que contiene informacion en la hoja de calculo
+  # Funcion Suma: SUMA(INICIOCELDA,FINALCELDA) EJEM: =SUMA(F7:F21)
+-- Pagina 3
+  -- Auditoria
+    - Evaluacion de formulas
+    - Comprobacion de errores en formulas
+  - Evaluar formula: evalua donde sale los datos viendo su valor de una celda indicada(Evalua en camara lenta,paso a paso).
+  - Comprobacion de Errores: Rastrea los errores para el cambio
+    #VALUE!:Operaciones matematicas con texto
+    #DIV/0!:Division por 0
+    #REF!:Referencia de celda en formula o funcion no valida,cuando las referencia de la celdas desaparece que son valores para la funcion
+-- Pagina 4
+    -- Funciones en Excel
+     -Sintaxis
+     -Funciones de obligada memorizacion(Suma,Promedio,Maximo,Minimo)
+-- Pagina 4
+    -- Funciones en Excel
+     - Uso del asistente de funciones(Fx)
+-- Pagina 2-2
+    -- Funciones en Excel
+      - Funcion condicional "SI"
+      # EJEMPLO CON Y : =SI(Y(B2>=5,C2>=5);"APROBADO";"DESAPROBADO)
+      # EJEMPLO CON O : =SI(O((B2>=5,C2>=5))"APROBADO";"DESAPROBADO)
+-- Pagina 2-2
+   -- Funciones en Excel
+    - Anidamiento de Funciones
+      # =SI(PROMEDIO(B18:C18)>=5;F$17;F$18)
+-- Pagina 2-2
+  -- funciones en Excel
+   -Anidamiento de funciones
+   - Funciones Y,O
+   - Anidamiento de funcion SI
+  # =SI(O(Y(B18>=5;C18>=5);G18>=2);"CON BECA";"SIN BECA")
+-- Pagina 4 -- 5
+  -- Funcion AGREGAR
+  -- Funcion SI.ERROR
+  # Ver el error no es tan sencillo, en esta situaciones es ignorar el valor de error
+  # Agregar: Decirle a vamos a relizar un calculo pero queremos ignorar esos errores =AGREGAR(9;6;F2:F39)
+    # Funcion Dias360 para sacar los dias entre dos fechas : =DIAS360(B9;C9)
+  Si queremos que los mensaje de error no aparezca en una hoja para que no desviste a posibles usuarios
+    - =SI.ERROR(SI(D10<10;E10-(E10*10%);SI(D10<15;E10-(E10*5%);E10-(E10*2%)));"NADA")
+-- Pagina 2-2
+  - Funcion BucarV(ConsultaV) : Siempre busca valores en la primera columna de una tabla,devolviendo el valor relacionado de la columna que indicamos
+  no debe tener valores repetidos
+-- Pagina 2-2
+  - Funcion nueva
+    -SI.CONJUNTO 
+    # Esa funcion nueva es muy util cuando hay que anidar "si es" porque simplifica bastante la funcion resultante
+      - =SI.CONJUNTO(D18<5;N$21;D18<6;N$22;D18<7;N$23;D18<9;N$24;VERDADERO;N$25)
+-- Pagina 5
+   - Funcion nueva
+    # Esta relacionado con filtros , tambien se puede hacer con autofiltros
+     -Max.Si.Conjunto
+     -Min.Si.Conjunto
+-- Pagina 5
+  - Funcion nueva
+    - Cambiar ; Es casi lo mismo que usar un sianidado
+     # =CAMBIAR(A48;1;"LUNES";2;"MARTES";3;"MIERCOLES";4;"JUEVES";5;"VIERNES";6;"SABADO";7;"DOMINGO")
+-- Pagina 5
+  - Funcion nueva
+    - Concat y Unir cadenas
+    # Esas funciones trabaja con texto y como indica va unir ese texto en diferentes formas.
+    # Unir cadena viene muy bien cuando queremos unir texto pero ademas queremos utilizar separadores.
+-- Pagina 6
+  - Funcion de BBDD o listados
+	-BDSUMA
+	-BDPROMEDIO
+	-BDMAX
+	-BDMIN
+	-ETC
+	# Lo que pide:
+    - Rango donde se encuentra la BBDD o listado
+    - Nombre del campo donde se realizara el calculo
+    - Rango criterios
+-- Pagina 6
+  - Criterios "Y","O" en funciones de BBDD
+  - Caracteres comodín
+  - Nombrar rangos
+  # Caracteres comodín en caso que dudas que hay acento o no lo sustituimos con un signo de interrogacion
+  # ? solo sustituye un caracter donde lo ponga
+  # * sustituye una cadena de caracter, eso indica que adelante de la palabra puede ir cualquier cosa(una cadena de caracteres)
+  # Es necesario comvertir en tabla,cuando se agrega mas registro cuente como una fila de la tabla.
+-- Pagina 6 -- Trim1 -- Trim2 -- TrimTotal
+ - Trabajo con hojas extensas
+ - Trabajo con varias hojas de un libro
+	- Visualizacion
+	-Formulas y funciones
+	- Consolidacion de datos
+   # Tener siempre la referencia de la primera fila para no perder cual es el nombre de las columnas
+   # Hay una opcion dividir donde nos facilita ver los datos de una tabla cuando queremos realizar datos en una fila abajo.
+   # Vista personalizadas Se coloca un nombre a la posicion que deseamos ir rapidamente a visualizar.
+   # Abrir el mismo libro en diferente ventanas
+   # Consolidar una forma sencilla para hacer calculo en dos hojas y colocarlo en una hoja 
+-- Pagina con Libros y hojas
+  - Trabajo con varios libros.
+   - Formulas con celdas de varios libros diferentes
+  - Vinculos a celdas de libros externos
+  - Actualizacion y modificacion de Vinculos
+  # ='[LibroTrimestral1.xlsx]hoja-libro-trimestral1'!$B$2
+-- Pagina Pagina6ZonaCriterio - Trim1
+  -Trabajo con nombres
+    -Nombre celdas
+    -Nombre rangos
+    - Aplicar nombre en formula y funciones
+    - Nombre con intersecciones
+    # Administrador de nombres podemos ver los rangos asignados un nombre especifico.
+    # Crear desde la seleccion es una forma para irno a la celda que queremos ver su dato
+    Creando filas y columnas
+     - =Antonio Marzo * G$13
+-- Pagina Pagina7
+  - Trabajo con nombres
+    - Uso de nombres en funciones
+    - Nombrar funciones
+-- Pagina 4
+  - Calculo con grupo en grandes listados o BBDD.Subtotales
+  # Para copiar celdas visibles debemos ir a "buscar y seleccionar" y ir a especial y apuntar a celdas visibles
+-- Pagina 4
+  - Filtrar listados a BBDD con autofiltros
+-- Pagina 4
+  - Filtros por promedio
+    - Filtro superior del promedio de la tabla general
+    - Filtro inferior del promedio de la tabla general
+  - Diez mejores -- solo funciona en numero
+  - Filtro por colores
+-- Pagina 4 -- Pagina4-ResultadoFi
+  - Filtro listados o BBDD con filtros avanzados
+    - En el filtro avanzado podemos copiar a otra hoja diferente del excel,la referencia del filtro que se asigno.
+    - Si quiero saber cuanto datos diferentes,tengo que seleccionar la columna del origen
+    - Filtro articulos mayor o menor que el promedio referencia a la columna Precio. =E2<PROMEDIO(E:E)
+-- Pagina 4
+ - Buscar informacion duplicada 
+ -Eliminar informacion duplicada
+ -Operar(Sumar,Promedio,etc) , ejem: Sumar registros que tendramos repetidos
+ - Para ver duplicado en "FORMATO ADICIONAL" , REGLAS PARA RESALTAR CELDAS Y EN VALORES DUPLICADOS
+ - Quitar duplicado verifica si hay duplicado y lo ellimina(Referencia a una fila o columna)
+ - Operaciones los duplicados en consolidar, se puede hacer sumar a informacion duplicada,etc.
+-- Pagina 4 -- TablaDinamica
+ - Que son las tablas dinamicas
+  - Para que sirven
+  - Estructura
+  - Recomendaciones 
+-- Pagina TablaDinamica
+  - Zona filtros
+  - Configurar campo de valores
+  - Trabajo con fechas
+  - Actualizaciones de tabla dinamica y cambiar origen de datos
+  - Segmentación de datos
+-- Pagina TablaDinamica
+  - Mas Segmentación de datos
+    - Escala de Tiempo
+  - Autofiltros en tabla dinamicas:la celda magica
+  - Informes de tablas dinamicas
+-- Pagina 8 -- TablaRelacionadas
+ - Tabla Relacionadas
+  - Crear relaciones entre tablas,se encuentra en datos en administrar relaciones
+  - Creacion de tablas dinamicas con tablas relacionadas
+  - Crear realacion con Power Pivot
+-- Pagina TablaDatos
+ - Herramientas de analisis
+  - Tablas de datos, nos dirigimos en Analisis de Hipotesis , hace una referencia a diferentes supuestos
+-- Pagina TablaDatos
+  - Herramientas de analisis
+   - Escenarios es un supuesto de una hoja en calculo, referencia crear escenarios que puede pasar,realiza resumen del escenario
+-- Pagina TablaDatos
+  - Herramientas de analisis
+    - Buscar Objetivo -- En buscar objetivo ayuda a realizar una busqueda para llegar el objetivo del planteo
+-- Pagina TablaDatos
+  - Herramientas de analisis
+    - Solver -- Buscar objetivos -- Modifica la celda que quieras no solamente uno como buscar objetivo y se puede colocar bloqueo
+    a una celda con la finalidad de llegar al presupuesto plantiado.
+-- Pagina Validacion
+ - Validacion de datos - Validaciones : Se encuentra el DATOS
+  - Impedir introduccion de cualquier dato en celda
+  - Obtencion de datos de facturacion de forma automatica
+  - Formulas y Listas
+-- Pagina Facturas
+  - Obtener datos de facturacion automaticos
+-- Macros -- Filtro -- Botones  -- Eliminar Macros
+  - Que son Macros
+  - VBA vs Grabadora de Macros
+  -- Grabar macros:Es una grabadora de acciones que se puede ejecutar cuando lo deseas.
+  -- Extensiones de archivos para macros
+  -- Libros de macros personal vs Este libro
+  -- Tecla de metodos abreviado
+  -- Referencias relativas y absolutas en macros
+  Es recomendable cuando se realiza macros guardarlo con la extencion .xlsm
+  Con la opcion "Usar referencias relativas" puede colocar que la grabacion sea relativas las celdas
+  Con F11 llama y crea un grafico , indicando la celda de un tabla de informacion.
+  -- Formato condicional
+  -- Proteccion: Celda-Rango-Hoja-Libro (Pagina 5)
+-------------------CURSO VBA-----------------------------------
+-- Offset es o mismo que la funcion DESREF
+-- CTR + FLECHA ABAJO FILA HACIA ABAJO
+-- Modelo de Objeto en Excel
+ - Application
+ - WorkBook -- Libro de trabajo
+ - Worksheet/Sheet -- Hoja
+ - Rangge/Cell -- Celd
+ // Referencia a una celda
+ Range("A1").Select
+ // Referencia a una hoja y una celda
+ Worksheets("Hoja1").Range("A1").Select
+ // Referencia un archivo,hoja y celda
+ WorkBooks("Libro1.xlsm").Worksheets("Hoja1").Range("A1").Select
+ // Referencia desde Application
+ Application.WorkBooks("Libro1.xlsm").Worksheets("Hoja1").Range("A1").Select
+ -- Las macros grabada hace la ejecucion donde te encuentres.
+
+--            Propiedad -- Metodos(Control + J)   F8 RECORRER MACRO LINEA POR LINEA , CTR + ESPACIO AUTOCOMPLETADO
+WorkBook    ActiveSheet   Close
+            Sheets        Open
+            Name          Save
+            FullName      SaveAs  
+            Path          PrintOut
+
+Name         Activate   
+            Tab           Copy
+            Visible       Delete
+            Index         Move
+            Hyperlinks    Paste
+
+Range/Cell  Address       Activate
+            Rows          AutoFit
+            Columns       AutoFilter
+            Count         Copy
+            CurrentRegion   AddComment
+-- Propiedades mas usadas en rangos de celdas y metodos de celdas (Pagina: PRO-ME-Celdas)
+-- Referencias a hojas,propiedad
+-- Trabajo con archivos: 
+  - Referencias : -Libros activos , -Libros en uso
+    -Contar
+    -Abrir
+    -Cerrar
+    -Guardar
+-- Variables
+-- Constantes
+-- Reglas para los nombres de las variables
+-- Tipos de datos
+--- Variables de Objeto
+  - Instruccion SET
+-- Ambito de las variables
+-- Tiempo de vida de las variables
+-- Reusar variables de una macro a otra.
+--- Funcion MsgBox
+-- Combinada con If.
+Numeros MSGBOX
+vbCancel -- 2  -- Cancel
+vbAbort -- 3  --  Anular
+vbRetry -- 4 -- Reintentar
+vbIgnore -- 5 -- Ignore
+vbYes  -- 6 -- Si
+vbNo -- 7 -- No
+Funcion InputBox
+Muestra un cuadro de dialogo donde se le pregunta al usuario un valor y se espera
+que se ingrese un valor y este se guarda en una variable
+Metodo InputBox
+Muestra un cuadro de dialogo donde se permiten valores de diferentes tipos.
+Valor  Descripcion
+0      Una formula
+1      Un numero
+2      Texto(Una cadena)
+4     Un valor logico(True o False)
+8    Una referencia a una celda,como un objeto Range
+16   Un valor de error,como por ejemplo N/A
+64  Una matrizd de valores
+Instruccion Select Case
+Alternativa a la instruccion IF
+- Bucles ciclos
+- Instruccion For Net
+- Bucles Do..Loop
+-- Do WHILE
+-- do UNTIL
+-- Implementar manejador de errores
+-- Declaraciones de procedimientos(macros)
+---- Agrupas tablas de todas las hojas en una sola
+-- Ejecutar macros de otro Archivo de Excel.
+- Abrir el archivo,ejecutar macros y cerrarlo
+- Crear una referencia a un archivo para ejecutar sus macros
+- Uso de Call y Run
+-- Pasar argumentos en un procedimiento(macro)
+-- Diferencia entre parametro y argumento
+- Parametros ByRef y ByVal
+-- Funciones en VBA
+- Diferencia entre procedimiento Sub y Procedimiento de tipo Function
+- Usar funciones en Celdas
+- Funciones personalizadas(udf)
+-- Funcion sin argumentos
+-- Funcion con un argumentos
+-- Funcion con dos argumentos
+-- Funcion con argumentos opcional
+-- Funciones para el manejo de texto
+-- Funciones de fecha y hora
+-- Funciones de conversion y formato
+---- FUNCIONES VBA para manejo de texto
+Nombre de la funcion    Descripcion
+InStr                 Devuelve la posicion de una cadena dentro de otra
+LCase                 Convierte un texto a minisculas
+UCase                Convierte un texto a MAYUSCULAS.
+Left                Devuelve cierta cantidad de caracteres desde la izquierda
+Rigth               Devuelve cierta cantidad de caracteres desde la derecha
+Mid                 Devuelve cierta cantidad de caracteres dada una posicion
+Len                 Devuelve el numero de caracteres de una cadena de texto
+Replace           Reemplaza una cadena de texto dentro de otra cadena
+StrConv           Devuelve una cadena de texto convertida a minusculas,MAYUSCULAS o Nombre propio.
+Trim            Elimina espacios excesivos de una cadena de texto
+vbNewLine       Inserta una nueva linea de texto en un cuadro de mensaje MsgBox
+vbTab           Añade un espacio de tabulacion en un cuadro de mensaje MsgBox
+-- Funciones de fecha y hora
+- Funciones de conversion y formato
+-- Funciones personalizadas UDF
+- Agrupar nuestras UDF en una categoria
+ - Usando MacroOptions para crear categoria de funciones
+  - Se refiere al cuadro de dialogo Opciones de macro
+  - Puede usarse para mostrar una funcion personalizada en una categoria o crear una nueva
+    dentro del cuadro Insertar funcion.
+  - Para que la categoria y las funciones esten siempre disponibles se debe crear un add-in
+   o complemento
+- Eventos en Excel o desencadenadores
+-- Eventos de Libros(Workbook)
+-- Eventos de Hoja(Worksheet)
+-- Eventos de Formulario(UserForm)
+--Eventos no asociados a objetos
+  OnTime
+  Onkey
+-- Eventos de Aplicacion (Application)
+ - Recordemos el modelo de objetos en Excel:Application > Workbook > Worksheet > Cell
+ - Un evento es algo que le sucede a un objeto o cuando sucede una accion en nuestro archivo
+  - al dar doble clic en una tabla
+  - al cambiar el valor de celdas
+  - al abrir un archivo,al cerrar un archivo
+  - al dar clic en un boton
+  - al iniciar un formulario
+EVENTOS COMUNES DE LIBRO
+Los eventos de Libro se aplican a un archivo en particular
+El codigo VBA de estos eventos se aloja en el Objeto ThisWorkbook
+Eventos                Descripción
+WorkBook_Open         Un archivo es abierto
+WorkBook_BeforeClose   Antes de cerrar el archivo
+Workbook_Activate     Un archivo es activado
+WorkBook_Deactivate   Un archivo es desactivado
+WorkBook_SheetChange  Cuando el valor de una celda es cambiado de cualquier hoja
+WorkBook_SheetSelectionChange  Cuando se selecciona cualquier celda de cualquier hoja
+WorkBook_SheetBeforeDoubleClic  Antes de dar doble clic en una celda
+WorkBook_SheetBeforeRighClick   Antes de dar clic derecho en una celda
+WorkBook_SheetPivotTableUpdate Cuando una tabla dinamica es cambiada o actualizada
+WorkBook_BeforePrint          Antes de Imprimir
+WorkBook_BeforeSave           Antes de guardar
+Workbook_NewSheet           Al insertar una nueva hoja
+WorkBook_WindowResize       Al cambiar el tamaño de la ventana
+-- Para desactivar evento en un libro : Application.EnableEvents = False
+Evento comunes de tipo Aplicacion
+Los eventos a nivel aplicacion nos ayudan a monitoriar todos los archivos abiertos
+Para usar eventos de aplicacion es necesario trabajar con un modulo de clase.
+Es igual a nivel libro y hoja solo que esos eventos son aplicable a cualquier archivo.
+(Cualquier archivo )
+-- PARAMETROS DEL EVENTO ONTIME
+EarliestTime : Es la hora en la que se ejecutara la macro
+Procedura: Es el nombre de la macro que se ejecutara.
+Latestime: Es el tiempo en que la macro se puede volver a ejecutar en caso
+de que Excel se encuentre ocupado a la hora programada.Por ej:Si queremos
+que la macro se intente ejecutar en 30 seg,en este parametro pondriamos Earliestime + 30.
+Solo se hara un segundo intento
+Schedule: Si omitimos este parametro por default sera True,es decir,que ejecutara un procedimiento
+Si le ponemos False anulara la ejecucion de la macro o procedimiento
+EVENTO ONKEY
+El evento onkey nos ayudara a ejecutar macros y procedimientos mediantes combinacion de teclas
+asignadas por nosotros.
+Usarmeos el evento onkey mediante el metodo Onkey del objeto Application
+-- FUNCIONES DE HOJA DE CACLULO DESDE MACROS
+-- INSERTAR FORMULAS EN LENGUAJE LOCAL
+-- INSERTAR FORMULAS COMPATIBLE CON CUALQUIER LENGUAJE DE LA PC.
+CUADRO DIALOGO
+-Cuadro de dialogo Abrir: metodo GetOpenFilename,Este metodo si requeremos obtener el nombre de algun archivo,con la facilidad de poner examinar carpeta.
+-Cuadro de dialogo Guardar como: metodo GetSaveAsFilename
+Objeto FileDialog para usar cuadros de dialogo de archivos 
+Mostrar cuadros de dialogos propios de Excel y ejecutar comandos de la cinta de opciones(Ribbon)
+-- Formulario
+Que son los formulario o Userforms
+Como se ven los formularios
+Pasos para crear un formulario
+Controles de Formulario
+EVENTO INITIALIZE DE UN USERFORM
+----------------------PROPIEDADES COMUNES DE LOS CONTROLES
+NAME. Es el nombre con que llamaremos a un control
+Caption. Es el valor que veremos en tiempo de ejecucion
+Acceleraton Es la tecla aceleradora. Se asigna una letra y se ejecuta en combinacion con la tecla ALT
+Value. El valor del Control
+Enable. Indica si un control esta habilitado
+Visible. Indica si un control esta visible o oculto
+TabIndex Indica el orden de tabulacion
+Height Hace referencia a la altura de un control
+Width Hace referencia al ancho
+--------------------FORMULARIOS-CONTROL COMMANDBUTTON
+Boton Aceptar. Propiedad Default (boton depreterminado)
+Boton Cancelar o Cerrar .Propiedad Cancel 
+Mover botones de posicion. Propiedad Top
+Cambiar tamaña de Formulario. Propiedad Height
+Cambiar color de fondo y fuente . propiedad BackColor y ForeColor
+Mensaje de ayuda.Propiedad ControlTipText
+-- Formularios-Control TextBox
+Validar ingreso de valores numericos.Propiedad BackColor
+Cuadro de texto de varias lineas.Propiedad multiline, Scrollbar y EnterKeyBehavior
+Cuadro de texto con formato de Password. Propiedad Passwordchar
+Funcion buscarv en cuadro de texo.
+Validar ingreso de valores mientras se escribe
+------Formulario-Control ComboBox
+Propiedades DropButtonStyle,showDropButtonWhen,Style en un ComboBox o cuadro combinado
+Añadir elementos uno por uno
+.. en base a un nombre definido(dinamico)
+.. en base a una tabla
+.. recorriendo los valores de una columna
+Mostar varias columnas en un comboBox
+---- Formulario-Control ListBox
+Rellenar Cuadro de lista en base a un rango
+Rellenar cuadro de lista en base una tabla
+Propiedades RowSource,ColumnCount,ColumnWidths,ColumnHeads 
+Identificar el elemento seleccionado en un ListBox
+Pasar valores de un ListBox a otro LisBox
+Filtrar valores de una tabla y mostrarlos en un ListBox
+pasar valores de un ListBox a otro ListBox
+Filtra valores de una tabla y mostrarlos en un Listbox
+Eliminar filas de una tabla con datos mostrados en un Listbox
+---------FORMULARIO - CONTROL IMAGEN
+Insertar una imagen desde la ventana Propiedades y que la imagen en el archivo
+Insertar imagen desde una carpeta y dejar imagen fuera del archivo
+Mostar imagen dependiendo el valor de un combobox
+Propiedades BorderStyle y PictureSizeMode para definir border y ajuste de imagen
+-------FORMULARIO-CONTROLCHECKBOX
+Validar si la casilla(checkbox) esta marcada o desmarcada
+Mostrar u ocultar controles dependiendo el estado de un checkbox
+Activar o desactivar opciones de Excel al momento de dar click en el CheckBox
+Controlar el uso de doble click en el control
+Usar una casilla de verificacion en una hoja(no un formulario)
+-----FORMULARIO-CONTROLOPTIONBUTTON
+Crear grupo de botones
+Formulario - CONTROLLISTVIEW
+Activamos la referencia en el IDE de VBA
+Activar y configurar el control
+Cargar valores de un rango de celdas
+Insertar registros individuales
+Actualizar registros
+eliminar registro
+Si no esta instalado buscar "MICROSOFT WINDOWS COMMON 6.0 EXCEL VBA
+--- FORMULARIO-CONTROL PROGRESSBAR
+Insertar el Control Barra de progreso en un Formulario
+Usar bucles anidados para ejecutar una accion en todas las hojas
+Conocer el uso de la funcion DoEvents
+---- Formularios - Control Multipage
+El control multi pagina nos permite tener formulario con varias pestañas y  cada pestañas
+puede contener otros control
+En excel, el dialogo de FORMATO DE CELDAS usa este control Multipage
+Existe el control TabStrip o Barra de pestaña,pero su uso es complicado,ademas de no que funciona
+como contenedor de controles,por lo que no es tan versatil como el Multi pagina
+https://www.youtube.com/watch?v=HGeqRvfFfFM&list=PLu8wBtXk2ly6-0LtqcC2aj4g6cEnJ-_nN&index=107
+-------------------- Curso Herramientas Power Excel Introducción ----------------------------------------
+Cuando se hace cambio a una base de datos (access) se reflejo en la tabla dinamica de excel
+- POWER QUERY
+Importacion de datos
+Historial de acciones
+Eliminar texto de columna
+Columna personalizados
+Columnas calculadas
+Columnas condicionales
+Lenguaje M
+Importar ficheros de textos csv bien estructurados
+Importar ficheros de texto mal estructurados
+Importar datos de diferentes origenes
+Anexar consultas
+Para juntar excel de Informacion con los mismos campos nos dirigimos a "Anexar Consultas" que ayudara a juntar 2 o mas tablas.
+Procesar archivo de carpeta
+- POWER PIVOT
+Modelos de datos
+Creacion de modelo de datos
+Lenguaje de formulas DAX -- Que es Dax?  - Data analysis Expressions - Es un lenguaje de formulas para operar con modelos de datos
+- Pensado para trabajar con talbas y columnas. Esta formado por
+- Funciones
+- Operadores aritmeticos
+- Operadores de comparacion
+- Operadores de concatenacion
+Columnas calculadas
+-- Creacion de columnas nuevas en el modelo de datos
+- Para que? -Para mostrar calculos -Para agrupar,filtrar,segmentar
+Medidas
+-- Utilizadas para mostrar calculos especificamente en tablas dinamicas concretamente en la zona de valores
+-- No forman parte del modelo de datos
+https://learn.microsoft.com/es-es/dax/dax-function-reference
+- POWER VIEW
+Creacion de Dashboards
+Graficos interlativos
+------------------POWER BI ---------------------------------------
+- Ecosistema Power Bi y flujo de trabajo
+- Primeros pasos con Power Bi Desktop
+  - Importacion de listados de Excel
+  - Modificacion de datos
+  - Primera visualizacion
+  - Busquedas,restablecer filtros y formatos
+  - Trabajo con varios archivos
+  -  Formatos:segmengtadores,formas y formatos condicionales
+  - Filtros de pagina
+  - Jerarquias
+  - Compartir informe en web
+  - Power Bi Service.Are de trabajo
+- TreeMaps y Mapas
+  
+https://www.youtube.com/watch?v=SVKykS_AM-8&list=PLF6moCwKCeQ8SFlMf5nMZ_L7puKLtKUkG
+https://www.youtube.com/watch?v=v4iX6MTblAs&list=PLu8wBtXk2ly6OHwqUx67EsitLfgz0pFOR
+
